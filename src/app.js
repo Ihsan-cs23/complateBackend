@@ -31,4 +31,15 @@ app.delete('/notes/:id', (req, res) => {
 
 })
 
+app.patch("/notes/:id", (req, res) => {
+    const id = req.params.id;
+    const title = req.body.title;
+    notes[id].title = title;
+    const description = req.body.description;
+    notes[id].description = description;
+    res.status(200).json({
+        message: "Notes updated successfully"
+    })
+})
+
 module.exports = app;
